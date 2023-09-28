@@ -13,8 +13,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install SSH keys
         run: |
-          install -m 600 -D /dev/null ~/.ssh/new
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/new
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           ssh-keyscan -H "${{ secrets.SSH_HOST }}" > ~/.ssh/known_hosts
       - name: ssh connect and clone
         run: |
